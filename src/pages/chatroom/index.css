@@ -1,0 +1,156 @@
+.chatroom-wrapper {
+    height: 100vh;
+}
+
+.classroom-header-detail {
+    line-height: 50px;
+    text-align: center;
+    user-select: none;
+}
+
+.header-online-user {
+    position: absolute;
+    left: 20px;
+}
+
+.header-hotes-label {
+    position: absolute;
+    right: 70px;
+}
+
+.header-login-btn {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+}
+
+.header-online-userlist {
+    max-height: 50px;
+    margin: 0 auto;
+    line-height: 1;
+    height: auto;
+    overflow-y: auto;
+    width: 500px;
+    word-break: break-word;
+    text-align: center;
+}
+
+.chatroom-content {
+    height: calc(100% - 180px);
+    overflow: scroll;
+}
+
+.chatroom-content .chatroom-content-item .chatroom-content-item-message.image {
+    background: transparent !important;
+}
+
+.chatroom-content .chatroom-content-item .chatroom-content-item-message.image img {
+    max-width: 256px;
+}
+
+.chatroom-content .chatroom-content-item .chatroom-content-item-message {
+    width: fit-content;
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.chatroom-content .chatroom-content-item.me {
+    text-align: right;
+    padding-right: 15px;
+}
+
+.chatroom-content .chatroom-content-item.me .chatroom-content-item-message {
+    background: #aeec73;
+}
+
+.chatroom-content .chatroom-content-item.other {
+    padding-left: 15px;
+}
+
+.chatroom-content .chatroom-content-item.other .chatroom-content-item-message {
+    background: #fff;
+}
+
+.chatroom-content .item-avater {
+    width: 45px;
+    border-radius: 50%;
+}
+
+.chatroom-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.chatroom-footer .operator-area {
+    background: #fff;
+}
+
+.chatroom-footer .operator-area .local-img-uploader {
+    display: inline-block;
+    width: 42px;
+}
+
+.chatroom-footer .operator-area .face-img-send {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.chatroom-footer .operator-area .local-img-uploader label {
+    display: inline-block;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.chatroom-footer .operator-area .local-img-uploader label img {
+    cursor: pointer;
+    margin-bottom: -2px;
+}
+
+.chatroom-footer .operator-area .local-img-uploader input {
+    visibility: hidden;
+    width: 0;
+}
+
+.chatroom-footer .operator-area .face-img-send img {
+    cursor: pointer;
+    margin-bottom: -2px;
+}
+
+.chatroom-footer .operator-area .face-img-send .face-wrapper {
+    position: absolute;
+    max-height: 88px;
+    height: auto;
+    padding-left: 8px;
+    padding-top: 3px;
+    overflow-y: auto;
+    background: #fff;
+    right: 0;
+    left: 0;
+    bottom: 35px;
+    border-bottom: 1px solid #eee;
+}
+
+.chatroom-footer .operator-area .face-img-send .face-wrapper.hide {
+    display: none;
+}
+
+.chatroom-footer .operator-area .face-img-send .face-wrapper img {
+    cursor: pointer;
+}
+
+.classroom-footer-input {
+    width: calc(100% - 52px);
+    line-height: 40px;
+}
+
+.classroom-footer-btn {
+    width: 50px;
+    line-height: 40px;
+}
+
+#tooltip {
+    z-index: 999;
+}

@@ -1,0 +1,43 @@
+.modal-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, .6);
+}
+
+.modal-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 500px;
+    height: 300px;
+    z-index: 1000;
+    background: #fff;
+    margin: auto;
+}
+
+.modal-header {
+    line-height: 50px;
+    text-align: center;
+}
+
+.modal-header .close-btn {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.modal-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}

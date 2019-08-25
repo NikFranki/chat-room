@@ -1,0 +1,11 @@
+.chatroom-modal .modal-content {
+    padding: 85px 30px;
+}
+
+.chatroom-modal .modal-content .login-row .login-label {
+    user-select: none;
+}
+
+.chatroom-modal .modal-content .login-row .login-input {
+    width: 310px;
+}

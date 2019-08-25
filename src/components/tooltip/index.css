@@ -1,0 +1,15 @@
+#tooltip {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+}
+
+.common-tooltip {
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    padding: 5px 10px;
+    background: #eee;
+    border-radius: 5px;
+    font-size: 14px;
+}
