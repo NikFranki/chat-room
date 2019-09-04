@@ -1,4 +1,5 @@
 // src/store/chat/reducers.ts
+import * as io from 'socket.io-client';
 
 import {
     ChatState,
@@ -10,10 +11,10 @@ import {
 const initialState: ChatState = {
     username: '',
     uid: '',
-    socket: null,
     messages: [],
     onlineUsers: {uid: '', username: ''},
-    onlineCount: 0
+    onlineCount: 0,
+    socket: io('http://localhost:3000'),
 }
 
 export function chatReducer(

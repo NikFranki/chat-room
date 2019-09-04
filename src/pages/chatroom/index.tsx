@@ -3,11 +3,8 @@ import Input from 'Components/input';
 import Button from 'Components/button';
 import { tooltipApi } from 'Components/tooltip';
 import { RouteComponentProps } from 'react-router-dom';
-import * as io from 'socket.io-client';
 import classNames from 'classnames';
 import './index.css';
-
-const socket = io('http://localhost:3000');
 
 import { ChatState, Message } from 'Store/chat/types';
 import { updateMessage } from 'Store/chat/actions';
@@ -44,6 +41,7 @@ export default class Chatroom extends React.Component<ChatroomProps, ChatroomSta
     }
 
     UNSAFE_componentWillMount() {
+        const { socket } = this.props.chat;
         socket.emit('onlineUsers');
     }
 
@@ -117,6 +115,7 @@ export default class Chatroom extends React.Component<ChatroomProps, ChatroomSta
     
     // 初始化，开始监控socket
     init = () => {
+        const { socket } = this.props.chat;
         // 客户端监控登录
         socket.on('login', obj => {
             this.updateSysMsg(obj, 'login');
@@ -147,6 +146,7 @@ export default class Chatroom extends React.Component<ChatroomProps, ChatroomSta
     }
 
     componentWillUnmount() {
+        const { socket } = this.props.chat;
         socket.removeEventListener('login');
         socket.removeEventListener('logout');
         socket.removeEventListener('message');
@@ -156,7 +156,7 @@ export default class Chatroom extends React.Component<ChatroomProps, ChatroomSta
 
     handleLoginOrLogout = () => {
         const { chat, history } = this.props;
-        const { username, uid } = chat;
+        const { username, uid, socket } = chat;
         console.log(username);
         if (username) {
             socket.emit('logout', { uid, username });
@@ -218,7 +218,7 @@ export default class Chatroom extends React.Component<ChatroomProps, ChatroomSta
     handleFooterSubmit = () => {
         const { chat } = this.props;
         const { text } = this.state;
-        const { uid, username } = chat;
+        const { uid, username, socket } = chat;
         if (!username) {
             tooltipApi.create('login-error-tooltip', '你还没有登录');
             this.setState({ text: '' });

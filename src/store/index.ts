@@ -1,11 +1,11 @@
 // src/store/index.ts
 import { combineReducers } from 'redux';
 
-import { chatReducer } from './chat/reducers'
+import { chatReducer } from './chat/reducers';
 
 const rootReducer = combineReducers({
     chat: chatReducer
-})
+});
 
 export default rootReducer;
 

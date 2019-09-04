@@ -4,13 +4,10 @@ import Button from 'Components/button';
 import Modal from 'Components/modal';
 import { tooltipApi } from 'Components/tooltip';
 import { RouteComponentProps, Route } from 'react-router-dom';
-import * as io from 'socket.io-client';
 import { ChatState } from 'Store/chat/types';
 import { login } from 'Store/chat/actions';
 
 import './index.css';
-
-const socket = io('http://localhost:3000');
 
 interface LoginProps extends RouteComponentProps<{}>, React.Props<{}>{
     login: typeof login;
@@ -89,7 +86,8 @@ export default class Login extends React.Component<LoginProps, LoginState> {
     };
 
     handleLoginSubmit = () => {
-        const { login, history } = this.props;
+        const { login, history, chat } = this.props;
+        const { socket } = chat;
         let { username } = this.state;
         const res = this.validateUsername(username);
         if (res) {
@@ -104,7 +102,7 @@ export default class Login extends React.Component<LoginProps, LoginState> {
         // 生成用户名字
         this.setState({ visible: false });
         tooltipApi.create('chatroom-tooltip', `欢迎${username}进入聊天室!`);
-        socket.emit('login', {uid, username});
+        socket.emit('login', { uid, username });
         login({ uid, username });
         history.replace('/');
     };
@@ -153,6 +151,7 @@ export default class Login extends React.Component<LoginProps, LoginState> {
     };
 
     render() {
+        console.log(this.props.chat.socket);
         return (
             <div className="chat-room-login">
                 {this.modal()}
